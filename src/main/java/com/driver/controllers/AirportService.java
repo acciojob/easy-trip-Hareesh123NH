@@ -1,22 +1,24 @@
 package com.driver.controllers;
 
+import com.driver.controllers.AirportRepository;
 import com.driver.model.Airport;
 import com.driver.model.City;
 import com.driver.model.Flight;
 import com.driver.model.Passenger;
-
-//import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
+
 public class AirportService {
-    AirportDataBase repository = new AirportDataBase();
+
+    AirportRepository repository = new AirportRepository();
 
     public void addAirport(Airport airport){
         repository.addAirport(airport);
     }
 
     public String getLargestAirportName() {
-        return repository.getLargestAirport();
+        return repository.getLargestAirportName();
     }
 
     public void addFlight(@RequestBody Flight flight) {
@@ -24,7 +26,7 @@ public class AirportService {
     }
 
     public String getAirportNameFromFlightId(Integer flightId) {
-        return repository.getAirportFromFlightId(flightId);
+        return repository.getAirportNameFromFlightId(flightId);
     }
 
     public void addPassenger(Passenger passenger) {
